@@ -86,7 +86,7 @@ def display_level(level):
 def display_game_over():
     font = pygame.font.SysFont("Arial", 50)
     game_over_text = font.render("GAME OVER", True, (20, 0, 0))
-    restart_text = font.render("Press SPACE to Restart", True, (0, 0, 0))
+    restart_text = font.render("Press R to Restart", True, (0, 0, 0))
     screen.blit(game_over_text, (SCREEN_WIDTH // 2 - game_over_text.get_width() // 2, SCREEN_HEIGHT // 2 - game_over_text.get_height() // 2))
     screen.blit(restart_text, (SCREEN_WIDTH // 2 - restart_text.get_width() // 2, SCREEN_HEIGHT // 2 + 50))
     pygame.display.flip()
@@ -124,11 +124,11 @@ while True:
 
         # If game over and player presses space, restart the game
         if game_over and event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
+            if event.key == pygame.K_r:
                 reset_game()
 
         # Handle the flapping movement
-        if event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
             if not game_over:
                 speed_y = FLAP_STRENGTH
 
